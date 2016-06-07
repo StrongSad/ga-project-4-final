@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var User = require('./models/user');
+var Trip = require('./models/trip');
 
 var app = express();
 
@@ -63,8 +64,8 @@ app.get('/users', function(req, res) {
 });
 
 //find one by first name
-app.get('/users/:fname', function(req, res) {
-  User.find({ firstName: req.params.fname }, function(err, user) {
+app.get('/users/:uname', function(req, res) {
+  User.find({ username: req.params.uname }, function(err, user) {
     if (err) return res.send(err);
     res.send(user);
   });
@@ -72,16 +73,19 @@ app.get('/users/:fname', function(req, res) {
 
 // updating
 // on click get first name/get user and update information
-User.findOneAndUpdate({ firstName: 'brian'}, { username: 'biranna'}, function(err, user) {
-  if (err) console.log(err);
-  console.log(user);
-});
+app.post('/users/:uname', function(req, res) {
+  User.findOneAndUpdate({ username: 'briBri'}, { username: 'biranna'}, function(err, user) {
+    if (err) console.log(err);
+    console.log(user);
+  });
+})
+
 
 //deleting
-app.delete('/users/:fname', function(req, res) {
-  User.findOneAndRemove({ firstName: req.params.fname }, function(err, user) {
+app.delete('/users/:uname', function(req, res) {
+  User.findOneAndRemove({ username: req.params.uname }, function(err, user) {
     if(err) console.log(err);
-    console.log(user + ' deleted');
+    res.redirect('/users')
   });
 });
 
