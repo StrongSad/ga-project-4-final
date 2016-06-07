@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+// don't think I need this
+//var Schema = mongoose.Schema;
 
 var TripSchema = new mongoose.Schema({
   from: String,
   to: String,
-  startDate: String,
-  endDate: String,
+  startDate: Date,
+  endDate: Date,
   description: String,
   messages: [{
     username: String,
