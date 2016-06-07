@@ -1,6 +1,6 @@
 var express = require('express');
 var Trip = require('../models/trip');
-var router = express.router();
+var router = express.Router();
 
 router.route('/')
   .get(function(req, res) {
