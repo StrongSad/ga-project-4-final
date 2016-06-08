@@ -14,13 +14,13 @@ var UserSchema = new mongoose.Schema({
 UserSchema.set('toJSON', {
   transform: function(doc, ret, options) {
     var returnJson = {
-      id: ret.id,
+      id: ret._id,
       firstName: ret.firstName,
       lastName: ret.lastName,
       email: ret.email,
       username: ret.username
     };
-    return retrunJson
+    return returnJson
   }
 });
 

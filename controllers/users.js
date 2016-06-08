@@ -10,31 +10,20 @@ router.route('/')
     });
   })
   .post(function(req, res) {
-    User.create(function(err, user) {
+    console.log(req.body);
+    User.create(req.body, function(err, user) {
       if(err) return res.status(500).send(err);
       res.send(user);
     });
   });
 
-  router.route('/:id')
-    .get(function(req, res) {
-      User.findById(req.params.id, function(err, user) {
-        if(err) return res.status(500).send(err);
-        res.send(user);
-      });
-    })
-    .put(function(req, res) {
-      User.findByIdAndUpdate(req.params.id, function(err, user) {
-        if(err) return res.status(500).send(err);
-        res.send({message: "User Updated!"});
-      })
-    })
-    .delete(function(req, res) {
-      User.findByIdAndRemove(req.params.id, function(err, user) {
-        if(err) return res.status(500).send(err);
-        res.send({message: "User Deleted"});
-      });
-    });
-
+router.route('/:id')
+.get(function(req, res) {
+  User.findById(req.params.id, function(err, user) {
+    if(err) return res.status(500).send(err);
+    res.send(user);
+  });
+});
+    
 
 module.exports = router;

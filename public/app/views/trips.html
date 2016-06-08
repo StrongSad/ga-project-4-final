@@ -1,1 +1,11 @@
 <h1>Road Trips Abound</h1>
+
+<!-- Post a new road trip here -->
+
+
+<div class="well" ng-repeat="trip in trips ">
+  <h2><b>{{trip.from}}</b> <small>to</small> <b>{{trip.to}}</b></h2>
+  <p>{{trip.startDate}}</p>
+  <p>{{trip.endDate}}</p>
+  <p>{{trip.description}}</p>
+</div>

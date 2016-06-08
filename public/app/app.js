@@ -11,32 +11,32 @@ app.config([
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'app/trips.html',
+    templateUrl: 'app/views/trips.html',
     controller: 'HomeCtrl'
   })
-  .state('newTrip', {
-    url: '/trips/new',
-    templateUrl: 'app/views/newTrip.html',
-    controller: 'NewCtrls'
-  })
-  .state('showTrip', {
-    url: '/trips/:id',
-    templateUrl: 'app/views/showTrip.html',
-    controller: 'ShowCtrls'
-  })
+  // .state('newTrip', {
+  //   url: '/trips/new',
+  //   templateUrl: 'app/views/newTrip.html',
+  //   controller: 'NewCtrl'
+  // })
+  // .state('showTrip', {
+  //   url: '/trips/:id',
+  //   templateUrl: 'app/views/showTrip.html',
+  //   controller: 'ShowCtrl'
+  // })
   .state('signup', {
     url: '/signup',
-    templateUrl: 'app/views/signup',
-    controller: 'SignupCtrls'
+    templateUrl: 'app/views/signup.html',
+    controller: 'SignupCtrl'
   })
   .state('login', {
     url: '/login',
-    templateUrl: 'app/views/login',
-    controller: 'LoginCtrls'
+    templateUrl: 'app/views/login.html',
+    controller: 'LoginCtrl'
   })
   .state('about', {
     url: '/about',
-    templateUrl: 'app/views/about',
+    templateUrl: 'app/views/about.html',
   })
   .state('404', {
     url: '/404',
