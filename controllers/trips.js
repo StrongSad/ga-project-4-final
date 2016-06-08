@@ -1,5 +1,6 @@
 var express = require('express');
 var Trip = require('../models/trip');
+
 var router = express.Router();
 
 router.route('/')
@@ -35,5 +36,8 @@ router.route('/:id')
       res.send({message: 'Trip removed.'});
     });
   });
+
+//add if statememt to delete trip or delete message
+//mongo db push for queries trips. update push new message
 
 module.exports = router;
