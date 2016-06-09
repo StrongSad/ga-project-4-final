@@ -9,7 +9,10 @@ var secret = "StrongSad7734377G3tonth3train!";
 
 var mongoose = require('mongoose');
 var User = require('./models/user');
-mongoose.connect('mongodb://localhost/ga-project-4-final');
+
+//mongoose.connect('mongodb://localhost/ga-project-4-final'); 
+mongoose.connect('mongodb://'+process.env.MONGO_USER + ':'+ process.env.MONGO_PASS +'@ds011314.mlab.com:11314/strongsad');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
