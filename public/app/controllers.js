@@ -81,7 +81,7 @@ angular.module('TripCtrls', ['TripServices'])
     $http.post('/api/users', $scope.user).then(function success(res) {
       $location.path('/');
     }, function error(res) {
-      console.log(data);
+      console.log(res);
     });
   }
 }])
