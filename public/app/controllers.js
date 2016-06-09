@@ -1,63 +1,77 @@
+angular.module('RecipeCtrls', ['RecipeServices'])
+.controller('HomeCtrl', ['$scope', 'Recipe', function($scope, Recipe) {
+  $scope.recipes = [];
 
-
-angular.module('TripCtrls', ['TripServices'])
-
-
-.controller('HomeCtrl', ['$scope', 'Trip', function($scope, Trip){
-  $scope.trips = [];
-
-  Trip.query(function success(data) {
-    $scope.trips = data;
+  Recipe.query(function success(data) {
+    $scope.recipes = data;
   }, function error(data) {
     console.log(data);
   });
 
-  $scope.deleteTrip = function(id, tripsIdx) {
-    Trip.delete({id: id}, function success(data) {
-      $scope.trips.splice(tripsIdx, 1);
+  $scope.deleteRecipe = function(id, recipesIdx) {
+    Recipe.delete({id: id}, function success(data) {
+      $scope.recipes.splice(recipesIdx, 1);
     }, function error(data) {
       console.log(data);
     });
   }
 }])
+.controller('ShowCtrl', ['$scope', '$stateParams', 'Recipe', function($scope, $stateParams, Recipe) {
+  $scope.recipe = {};
 
+  Recipe.get({id: $stateParams.id}, function success(data) {
+    $scope.recipe = data;
+  }, function error(data) {
+    console.log(data);
+  });
+}])
+.controller('NewCtrl', ['$scope', '$location', 'Recipe', function($scope, $location, Recipe) {
+  $scope.recipe = {
+    title: '',
+    description: '',
+    image: ''
+  };
 
-
-/** **********************************************
-                  This Is Auth Stuff
-********************************************** **/
-
+  $scope.createRecipe = function() {
+    Recipe.save($scope.recipe, function success(data) {
+      $location.path('/');
+    }, function error(data) {
+      console.log(data);
+    });
+  }
+}])
+.controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  $scope.Auth = Auth;
+  $scope.logout = function() {
+    Auth.removeToken();
+    console.log('My token:', Auth.getToken());
+  }
+}])
 .controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
-  console.log('in the signup')
   $scope.user = {
-    firsName: '',
-    lastName: '',
     email: '',
-    username: '',
     password: ''
   };
   $scope.userSignup = function() {
-    console.log('about to post')
     $http.post('/api/users', $scope.user).then(function success(res) {
-      console.log('success send to home')
+      $location.path('/');
+    }, function error(res) {
+      console.log(data);
+    });
+  }
+}])
+.controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {
+  $scope.user = {
+    email: '',
+    password: ''
+  };
+  $scope.userLogin = function() {
+    $http.post('/api/auth', $scope.user).then(function success(res) {
+      Auth.saveToken(res.data.token);
+      console.log('Token:', res.data.token)
       $location.path('/');
     }, function error(res) {
       console.log(res);
     });
   }
-}])
-// .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {
-//   $scope.user = {
-//     email: '',
-//     password: ''
-//   };
-//   $scope.userLogin = function() {
-//     $http.post('/api/auth', $scope.user).then(function success(res) {
-//       Auth.saveToken(res.data.token);
-//       console.log('Token:', res.data.token)
-//       $location.path('/');
-//     }, function error(res) {
-//       console.log(data);
-//     });
-//   }
-// }])
+}]);

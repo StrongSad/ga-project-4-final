@@ -1,27 +1,19 @@
 {
-  "name": "ga-project-4-final",
+  "name": "recipes",
   "version": "1.0.0",
-  "description": "Travel Buddies, Find roud trip friends with ease",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/StrongSad/ga-project-4-final.git"
-  },
-  "author": "Jacob Barrus",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/StrongSad/ga-project-4-final/issues"
-  },
-  "homepage": "https://github.com/StrongSad/ga-project-4-final#readme",
   "dependencies": {
-    "bcrypt": "^0.8.6",
-    "body-parser": "^1.15.1",
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "express-jwt": "^3.4.0",
-    "jsonwebtoken": "^7.0.0",
-    "mongoose": "^4.4.20"
+    "express-jwt": "^3.3.0",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "^4.4.7"
   }
 }
