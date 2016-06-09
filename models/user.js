@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
+var Schema = mongoose.Schema;
 
 var UserSchema = mongoose.Schema({
-  name: String,
+  username: String,
   email: String,
-  password: String
+  password: String,
+  trips: [{ type:Schema.ObjectId, ref:"trip" }]
 });
 
 UserSchema.set('toJSON', {
@@ -12,7 +14,7 @@ UserSchema.set('toJSON', {
     var returnJson = {
       id: ret._id,
       email: ret.email,
-      name: ret.name
+      username: ret.name
     };
     return returnJson;
   }

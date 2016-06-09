@@ -1,0 +1,40 @@
+<h1>{{trip.userLocation}} <small>to</small> {{trip.userDestination}}</h1>
+<h3><small>From</small> {{trip.startDate}} <small>to</small> {{trip.endDate}} </h3>
+
+<div class="well">
+  <p>
+    Looking for {{trip.seatsAvailable}} companions!
+  </p>
+  <p>
+    <b>Things you should know:</b> {{trip.description}}
+  </p>
+</div>
+
+<a href="/" class="btn btn-primary">&larr; Back</a>
+
+<div>
+  <ul>
+    <li ng-repeat=" message in trip.messages track by $index">{{message.comment}}</li>
+  </ul>
+</div>
+
+<form ng-submit="createPost()">
+  <div class="form-group">
+    <label for="content">Comment on this trip</label>
+    <input type="text" class="" id="content" ng-model="message.comment">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Comment</button>
+</form>
+
+
+<!-- userLocation: String,
+userDestination: String,
+startDate: Date,
+endDate: Date,
+seatsAvailable: Number,
+description: String,
+messages: [{
+  username: String,
+  comment: String
+}] -->

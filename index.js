@@ -5,17 +5,17 @@ var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
 var app = express();
 
-var secret = "mysupersecretpassword";
+var secret = "StrongSad7734377G3tonth3train!";
 
 var mongoose = require('mongoose');
 var User = require('./models/user');
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect('mongodb://localhost/ga-project-4-final');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/recipes', expressJWT({secret: secret}));
+app.use('/api/trips', expressJWT({secret: secret}));
 app.use('/api/users', expressJWT({secret: secret})
 .unless({path: ['/api/users'], method: 'post'}));
 
@@ -25,7 +25,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-app.use('/api/recipes', require('./controllers/recipes'));
+app.use('/api/trips', require('./controllers/trips'));
 app.use('/api/users', require('./controllers/users'));
 
 app.post('/api/auth', function(req, res) {

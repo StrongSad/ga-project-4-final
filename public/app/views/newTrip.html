@@ -1,0 +1,58 @@
+<h1>New Road Trip!</h1>
+<h3>Tell us about your adventure</h3>
+
+<form ng-submit="createTrip()">
+  
+  <div class="form-group">
+    <label for="userLocation">What city and state are you leaving from? <small>Please never give out your address as this may lead to theft in your absence.</small></label>
+    <input type="text" class="form-control" id="userLocation" ng-model='trip.userLocation'>
+  </div>
+  <div class="form-group">
+    <label for="userDestination">Where are you going?</label>
+    <input type="text" class="form-control" id="userDestination" ng-model='trip.userDestination'>
+  </div>
+  <div class="form-group">
+    <label for="startDate">When are you leaving?</label>
+    <input type="date" class="form-control" id="startDate" ng-model='trip.startDate'>
+  </div>
+  <div class="form-group">
+    <label for="endDate">What day will you be back?</label>
+    <input type="date" class="form-control" id="endDate" ng-model='trip.endDate'>
+  </div>
+  <div class="form-group">
+    <label for="seatsAvailable">How many companions are you looking for?</label>
+    <input type="number" class="form-control" id="seatsAvailable" ng-model='trip.seatsAvailable'>
+  </div>
+  <div class="form-group">
+    <label for="description">Tell us abut yourself and what you are looking for in a road trip buddy. Anything else we should know? <small>ie specific routes you want to take, Cities you'll be passing through.</small></label>
+    <input type="text" class="form-control" id="description" ng-model='trip.description'>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<!-- userLocation: String,
+userDestination: String,
+startDate: Date,
+endDate: Date,
+seatsAvailable: Number,
+description: String,
+messages: [{
+  username: String,
+  comment: String
+}] -->
+
+<!-- <div class="form-group">
+  <label for="title">Title</label>
+  <input type="text" class="form-control" id="title" ng-model="recipe.title">
+</div>
+<div class="form-group">
+  <label for="description">Description</label>
+  <textarea class="form-control" id="description" ng-model="recipe.description"></textarea>
+</div>
+<div class="form-group">
+  <label for="image">Image Link</label>
+  <input type="url" class="form-control" id="image" placeholder="" ng-model="recipe.image">
+</div> -->

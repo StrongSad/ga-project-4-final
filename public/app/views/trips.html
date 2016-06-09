@@ -1,0 +1,18 @@
+<h1>Road Trips Abound</h1>
+
+<a href="/trips/new" class="btn btn-success">Post a new road trip</a>
+
+<div class="form-group">
+  <label for="search">Search</label>
+  <input type="text" class="form-control" id="search" ng-model="search">
+</div>
+
+<div class="well" ng-repeat="trip in trips | filter:{userLocation:search} track by trip._id">
+  <h1>{{trip.userLocation}} <small>to</small> {{trip.userDestination}}</h1>
+  <h3><small>From</small> {{trip.startDate}} <small>to</small> {{trip.endDate}}</h3>
+  <p>Looking for <b>{{trip.seatsAvailable}}</b> companions</p>
+  <p><b>More infromation:</b> {{trip.description}}</p>
+  <a ng-href="/trips/{{trip._id}}">Respond</a>
+  <!-- <a ng-click="deleteTrip(trip._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a> -->
+</div> 
+
