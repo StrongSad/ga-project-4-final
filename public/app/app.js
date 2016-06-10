@@ -1,4 +1,4 @@
-var app = angular.module('RecipeApp', ['ui.router', 'TripCtrls']);
+var app = angular.module('TripApp', ['ui.router', 'TripCtrls']);
 
 app.config([
   '$stateProvider',

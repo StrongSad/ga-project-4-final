@@ -28,3 +28,4 @@ User Stories:
 Still working on:
 
   Somethings I wasn't able to finish were first off the styeling, user identification between trips, full crud on trips and messages.  
+ 

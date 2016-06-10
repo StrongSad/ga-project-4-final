@@ -78,7 +78,7 @@ angular.module('TripCtrls', ['TripServices'])
     console.log('My token:', Auth.getToken());
   }
 }])
-.controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+.controller('SignupCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {
   $scope.user = {
     username: '',
     email: '',
@@ -86,7 +86,12 @@ angular.module('TripCtrls', ['TripServices'])
   };
   $scope.userSignup = function() {
     $http.post('/api/users', $scope.user).then(function success(res) {
-      $location.path('/');
+      $http.post('/api/auth', $scope.user).then(function success(res) {
+        Auth.saveToken(res.data.token);
+        $location.path('/');
+      }, function error(res){
+        console.log(res);
+      })
     }, function error(res) {
       console.log(res);
     });
