@@ -9,6 +9,7 @@ var secret = "StrongSad7734377G3tonth3train!";
 
 var mongoose = require('mongoose');
 var User = require('./models/user');
+var Trip = require('./models/trip');
 
 //mongoose.connect('mongodb://localhost/ga-project-4-final'); 
 var mongodbURI = process.env.MONGODB_URI || 'mongodb://localhost/ga-project-4-final';
