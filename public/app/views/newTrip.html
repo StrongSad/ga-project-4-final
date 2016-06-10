@@ -1,11 +1,15 @@
-<h1>New Road Trip!</h1>
-<h3>Tell us about your adventure</h3>
 
-<form ng-submit="createTrip()">
+
+<div class="col-md-offset-2 col-md-9 top">
+  <h1>New Road Trip!</h1>
+  <h3>Tell us about your adventure</h3>
+</div>
+
+<form ng-submit="createTrip()" class="col-md-offset-2">
   
   <div class="form-group">
     <label for="userLocation">What city and state are you leaving from? <small>Please never give out your address as this may lead to theft in your absence.</small></label>
-    <input type="text" class="form-control" id="userLocation" ng-model='trip.userLocation'>
+    <input type="text" class="form-control" id="userLocation" ng-model='trip.userLocation' placeholder="Seattle, Washington">
   </div>
   <div class="form-group">
     <label for="userDestination">Where are you going?</label>

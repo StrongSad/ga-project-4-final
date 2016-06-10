@@ -47,14 +47,15 @@ router.route('/:tripid/messages')
   .post(function(req, res) {
     Trip.findById(req.params.tripid, function(err, trip) {
       if (err) return res.status(500).send(err);
-      console.log(req.body)
-      console.log(req.params.tripid)
       trip.messages.push(req.body)
-      console.log(trip.messages)
       trip.save()
       res.send(trip);
     })
-  });
+  })
+
+  .put()
+
+  .delete()
 
 
 

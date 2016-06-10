@@ -6,6 +6,11 @@ angular.module('TripCtrls', ['TripServices'])
 
   Trip.query(function success(data) {
     $scope.trips = data;
+    console.log($scope.trips)
+    for (var i = 0; i < $scope.trips.length; i++) {
+      $scope.trips[i].startDate = new Date($scope.trips[i].startDate).toLocaleDateString();
+      $scope.trips[i].endDate = new Date($scope.trips[i].endDate).toLocaleDateString();
+    }
   }, function error(data) {
     console.log(data);
   });
@@ -48,6 +53,8 @@ angular.module('TripCtrls', ['TripServices'])
 
   Trip.get({id: $stateParams.id}, function success(data) {
     $scope.trip = data;
+    $scope.trip.startDate = new Date($scope.trip.startDate).toLocaleDateString()
+    $scope.trip.endDate = new Date($scope.trip.endDate).toLocaleDateString()
   }, function error(data) {
     console.log(data);
   });

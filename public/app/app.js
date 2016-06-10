@@ -34,6 +34,10 @@ app.config([
     templateUrl: 'app/views/userLogin.html',
     controller: 'LoginCtrl'
   })
+  .state('about', {
+    url: '/about',
+    templateUrl: 'app/views/about.html'
+  })
   .state('404', {
     url: '/404',
     templateUrl: 'app/views/404.html'
