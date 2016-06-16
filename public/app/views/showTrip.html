@@ -1,35 +1,36 @@
-
 <div class="col-md-offset-2 col-md-9 top">
-  <h1>{{trip.userLocation}} <small>to</small> {{trip.userDestination}}</h1>
-  <h3><small>From</small> {{trip.startDate}} <small>to</small> {{trip.endDate}} </h3>
-</div>
-
-
-<div class="well" class="col-md-offset-2">
-  <p>
-    Looking for {{trip.seatsAvailable}} companions!
-  </p>
-  <p>
-    <b>Things you should know:</b> {{trip.description}}
-  </p>
-</div>
-
-<a href="/" class="btn btn-primary">&larr; Back</a>
-
-<div>
-  <ul>
-    <li ng-repeat=" message in trip.messages track by $index">{{message.comment}}</li>
-  </ul>
-</div>
-
-<form ng-submit="createPost()">
-  <div class="form-group">
-    <label for="content">Comment on this trip</label>
-    <input type="text" class="" id="content" ng-model="message.comment">
+  <div class=" top">
+    <h1>{{trip.userLocation}} <small>to</small> {{trip.userDestination}}</h1>
+    <h3><small>From</small> {{trip.startDate}} <small>to</small> {{trip.endDate}} </h3>
   </div>
 
-  <button type="submit" class="btn btn-primary">Add Comment</button>
-</form>
+  
+  <div class="well" class="col-md-offset-2">
+    <p>
+      Looking for {{trip.seatsAvailable}} companions!
+    </p>
+    <p>
+      <b>Things you should know:</b> {{trip.description}}
+    </p>
+  </div>
+
+  <a href="/" class="btn btn-primary">&larr; Back</a>
+  <div class="top">
+      <h2>Message Board</h2>
+    <div class="well">
+      <p ng-repeat=" message in trip.messages track by $index">{{message.comment}}</p>
+    </div>
+  </div>
+
+  <form ng-submit="createPost()">
+    <div class="form-group">
+      <label for="content">Comment on this trip:</label>
+      <textarea type="text" class="form-control" id="content" ng-model="message.comment"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Comment</button>
+  </form>
+</div>
 
 
 <!-- userLocation: String,

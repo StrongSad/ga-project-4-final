@@ -1,12 +1,18 @@
+
+
 .navbar-fixed-left { 
   width: 15%;
   position: fixed;
   border-radius: 0;
   height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
 }
 
 .navbar-brand {
   margin-top: 15%;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .navbar-fixed-left .navbar-nav > li {

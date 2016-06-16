@@ -11,7 +11,7 @@
   
 
   <div class="form-group" class="col-md-offset-2">
-    <label for="search">Search by city</label>
+    <label for="search">Search by city:</label>
     <input type="text" class="form-control" id="search" ng-model="search">
   </div>
 
@@ -19,7 +19,7 @@
     <h1>{{trip.userLocation}} <small>to</small> {{trip.userDestination}}</h1>
     <h3><small>From</small> {{trip.startDate}} <small>to</small> {{trip.endDate}}</h3>
     <p>Looking for <b>{{trip.seatsAvailable}}</b> companions</p>
-    <p><b>More infromation:</b> {{trip.description}}</p>
+    <p><b>More information:</b> {{trip.description}}</p>
     <a ng-href="/trips/{{trip._id}}">Respond</a>
     <!-- Anyone can delete right now..... :( -->
     <!-- <a ng-click="deleteTrip(trip._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a> -->

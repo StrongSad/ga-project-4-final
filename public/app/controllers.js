@@ -6,10 +6,20 @@ angular.module('TripCtrls', ['TripServices'])
 
   Trip.query(function success(data) {
     $scope.trips = data;
+    var date = new Date();
+    console.log(date);
     console.log($scope.trips)
     for (var i = 0; i < $scope.trips.length; i++) {
-      $scope.trips[i].startDate = new Date($scope.trips[i].startDate).toLocaleDateString();
-      $scope.trips[i].endDate = new Date($scope.trips[i].endDate).toLocaleDateString();
+      if ($scope.trips[i].endDate >= date) {
+        console.log('deleting trip');
+        console.log($scope.trips[i]);
+        delete $scope.trips[i];
+      } else {
+        console.log('converting dates')
+        $scope.trips[i].startDate = new Date($scope.trips[i].startDate).toLocaleDateString();
+        $scope.trips[i].endDate = new Date($scope.trips[i].endDate).toLocaleDateString();
+      }
+      
     }
   }, function error(data) {
     console.log(data);
